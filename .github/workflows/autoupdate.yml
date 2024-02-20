@@ -1,5 +1,5 @@
 name: autoupdate
-'on': workflow_call
+on: workflow_call
 jobs:
   autoupdate:
     runs-on: ubuntu-latest
