@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          repository: israr3387
+          repository: ML
           ref: main
       - name: autoupdate
         uses: ./
