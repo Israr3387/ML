@@ -1,6 +1,5 @@
 name: autoupdate
-on:
-  workflow_call
+'on': workflow_call
 jobs:
   autoupdate:
     runs-on: ubuntu-latest
@@ -13,15 +12,14 @@ jobs:
       - name: autoupdate
         uses: ./
         env:
-          GITHUB_TOKEN: "${{ secrets.TOKEN_GITHUB }}"
-          DRY_RUN: "false"
-          PR_FILTER: "labelled"
-          PR_LABELS: "autoupdate"
-          MERGE_MSG: "Merged the changes to target branch from main"
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          DRY_RUN: 'false'
+          PR_FILTER: labelled
+          PR_LABELS: autoupdate
+          MERGE_MSG: Merged the changes to target branch from main
           RETRY_COUNT: 100
-          MERGE_CONFLICT_ACTION: "fail"
+          MERGE_CONFLICT_ACTION: fail
       - run: echo 'Merge conflicts found!'
-        if: ${{ steps.autoupdate.outputs.conflicted }}
-
+        if: '${{ steps.autoupdate.outputs.conflicted }}'
       - run: echo 'No merge conflicts'
-        if: ${{ !steps.autoupdate.outputs.conflicted }}
+        if: '${{ !steps.autoupdate.outputs.conflicted }}'
